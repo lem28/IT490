@@ -1,0 +1,88 @@
+<html>
+<head>
+		<title>Placeholder Text</title>
+		<!-- Metadata -->
+		<meta charset="utf-8" content="text/html" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Bootstrap -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/style.css">
+		<!-- JS --> 
+		<script src="js/script.js"></script>
+	</head>
+	<body onload="init()">
+		<div class="container-fluid">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="index.html">PC Gaming Hub</a>
+				</div>
+				<div class="nav navbar-nav navbar-left">
+					<div class="navbar-brand" id="date"></div>
+				</div>
+				<div class="nav navbar-nav navbar-left">
+					<div class="navbar-brand" id="time"></div>
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Register
+					<span class="glyphicon glyphicon-log-in"></span></a>
+						<div class="dropdown-menu">
+							<form id="formLogin" class="form container-fluid">
+								<div class="form-group">
+									<label for="reg_usr">Name:</label>
+									<input type="text" class="form-control" id="reg_usr">
+								</div>
+								<div class="form-group">
+									<label for="reg_pwd">Password:</label>
+									<input type="password" class="form-control" id="reg_pwd">
+								</div>
+								<div class="form-group">
+									<label for="first_name">First Name:</label>
+									<input type="text" class="form-control" id="first_name">
+								</div>
+								<div class="form-group">
+									<label for="last_name">Last Name:</label>
+									<input type="text" class="form-control" id="last_name">
+								</div>
+								<div class="form-group">
+									<label for="email">E-mail:</label>
+									<input type="text" class="form-control" id="email">
+								</div>
+								<button type="button" id="btnRegister" class="btn btn-block" onclick="register">Register</button>
+							</form>
+						</div>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Login
+					<span class="glyphicon glyphicon-log-in"></span></a>
+						<div class="dropdown-menu">
+							<form id="formLogin" class="form container-fluid">
+								<div class="form-group">
+									<label for="usr">Name:</label>
+									<input type="text" class="form-control" id="usr">
+								</div>
+								<div class="form-group">
+									<label for="pwd">Password:</label>
+									<input type="password" class="form-control" id="pwd">
+								</div>
+								<button type="button" id="btnLogin" class="btn btn-block" onclick="login()">Login</button>
+							</form>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="container-fluid">
+			<div class="jumbotron" id="credentials">
+				<div class="row">
+					<h2 style="text-align: center">Welcome to the PC Gaming Hub
+				</div>
+			</div>
+			<div class="jumbotron" id="status"></div>
+		</div>
+	</body>
+</html>
