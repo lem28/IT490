@@ -1,6 +1,5 @@
 <?php
 require_once("inc/user.php.inc");
-require_once("inc/file.php.inc");
 
 $request = $_POST['request'];
 $response = "didn't work :^)";
@@ -33,52 +32,10 @@ switch($request)
 		if ($response['success'])
 		{
 			$response = "<p>Login Successful!";
-			echo '<a href="login.html">Click here to upload your file(s)<a>';
 		}
 		else		
 		{
 			$response = "<p>Login Failed: ".$response['message'];
-		}
-		break;
-	case "upload":
-		$file = new file("inc/connect.ini");
-		$response = $file->file_upload();
-		if ($response['success'])
-		{
-			$response = "<p>File Upload Successful!";
-		}
-		else
-		{
-			$response = "<p>File Upload Failed...";
-		}
-		break;
-	case "search":
-		$param = $_POST['param'];
-		$file = new file("inc/connect.ini");
-		$response = $file->file_search($param);
-		if ($response['success'])
-		{
-			$response = "<p>File Search Successful!";
-		}
-		else
-		{
-			$response = "<p>File Search Failed...";
-		}
-		break;
-	case "browse":
-		$file = new file("inc/connect.ini");
-		$response = $file->file_browse();
-		break;
-	case "scan":
-		$file = new file("inc/connect.ini");
-		$response = $file->file_scan();
-		if ($response['success'])
-		{
-			$response = "<p>File Scan Successful!";
-		}
-		else
-		{
-			$response = "<p>File Scan Failed...";
 		}
 		break;
 }
