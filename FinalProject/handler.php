@@ -7,17 +7,16 @@ $r = $_REQUEST['r'];
 function register()
 {
 	$json = json_decode(file_get_contents("php://input"), true);
-	$username = $json['reg_username'];
 	$password = $json['reg_password'];
 	$first_name = $json['reg_first_name'];
 	$last_name = $json['reg_last_name'];
 	$email = $json['reg_email'];
 	$login = new user("inc/connect.ini");
-	$response = $login->login_user($username, $password);
+	$response = $login->login_user($email, $password);
 	if ($response['success'])
 	{
-		$login->add_new_user($username,$password,$first_name,$last_name,$email);
-		$response = "<p> $username Registered Successfully!";
+		$login->add_new_user($password,$first_name,$last_name,$email);
+		$response = "<p> $email Registered Successfully!";
 		echo $response;
 	}
 	else
@@ -30,15 +29,15 @@ function register()
 function login()
 {
 	$json = json_decode(file_get_contents("php://input"), true);
-	$username = $json['log_username'];
+	$email = $json['log_email'];
 	$password = $json['log_password'];
 	$login = new user("inc/connect.ini");
-	$response = $login->login_user($username, $password);
+	$response = $login->login_user($email, $password);
 	if ($response['success'])
 	{
 		$response = "<p>Login Successful!";
 		echo $response;
-		$_SESSION["user"] = $username;
+		$_SESSION["email"] = $email;
 		header('Location: ../user.html');
 	}
 	else
@@ -55,38 +54,10 @@ function logout()
 	header('Location: ../index.html');
 }
 
-function upload()
-{
-	$json = json_decode(file_get_contents("php://input"), true);
-	$file = new file("inc/connect.ini");
-	$response = $file->file_upload();
-	if ($response['success'])
-	{
-		$response = "<p>File Upload Successful!";
-		echo $response;
-		header('../user.html');
-	}
-	else
-	{
-		$response = "<p>File Upload Failed...";
-		echo $response;
-	}
-}
-
-function browse()
-{
-	$file = new file("inc/connect.ini");
-	$response = $file->file_browse();
-}
-
 if($r == "register")
 	register();
 if($r == "login")
 	login();
 if($r == "logout")
 	logout();
-if($r == "upload")
-	upload();
-if($r == "browse")
-	browse();
 ?>
