@@ -7,7 +7,6 @@ $response = "didn't work :^)";
 switch($request)
 {
 	case "register":
-		$username = $_POST['username'];
 		$password = $_POST['password'];
 		$first_name = $_POST['first_name'];
 		$last_name = $_POST['last_name'];
@@ -25,7 +24,7 @@ switch($request)
 		}
 		break;
 	case "login":
-		$username = $_POST['username'];
+		$email = $_POST['user_email'];
 		$password = $_POST['password'];
 		$login = new user("connect.ini");
 		$response = $login->login_user($username, $password);
