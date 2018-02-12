@@ -1,5 +1,5 @@
 <?php
-require_once("inc/user.php.inc");
+require_once("user.php.inc");
 
 $request = $_POST['request'];
 $response = "didn't work :^)";
@@ -12,7 +12,7 @@ switch($request)
 		$first_name = $_POST['first_name'];
 		$last_name = $_POST['last_name'];
 		$email = $_POST['user_email'];
-		$login = new user("inc/connect.ini");
+		$login = new user("connect.ini");
 		$response = $login->login_user($username, $password);
 		if ($response['success'])
 		{
@@ -27,7 +27,7 @@ switch($request)
 	case "login":
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-		$login = new user("inc/connect.ini");
+		$login = new user("connect.ini");
 		$response = $login->login_user($username, $password);
 		if ($response['success'])
 		{
