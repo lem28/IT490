@@ -45,16 +45,15 @@ function init()
 // AJAX solution
 var reg_text =
 {
-	"reg_username":document.getElementById("reg_usr") ,
+	"reg_email":document.getElementById("email")
 	"reg_password":document.getElementById("reg_pwd") ,
 	"reg_firstName":document.getElementById("first_name") ,
 	"reg_lastName":document.getElementById("last_name") ,
-	"reg_email":document.getElementById("email")
 };
 
 var log_text =
 {
-	"log_username":document.getElementById("log_usr") ,
+	"log_email":document.getElementById("log_email") ,
 	"log_password":document.getElementById("log_pwd")
 };
 
@@ -66,7 +65,7 @@ function login()
 			document.getElementById("status").innerHTML = xhttp.responseText;
 		}
 	};
-	xhttp.open("POST", "../php/handler.php?r=login", true);
+	xhttp.open("POST", "handler.php?r=login", true);
 	xhttp.send(JSON.stringify(log_text));
 }
 
@@ -78,7 +77,7 @@ function register()
 			document.getElementById("status").innerHTML = xhttp.responseText;
 		}
 	};
-	xhttp.open("POST", "../php/handler.php?r=register", true);
+	xhttp.open("POST", "handler.php?r=register", true);
 	xhttp.send(JSON.stringify(reg_text));
 }
 
@@ -90,30 +89,6 @@ function logout()
 			document.getElementById("status").innerHTML = xhttp.responseText;
 		}
 	};
-	xhttp.open("POST", "../php/handler.php?r=logout", true);
-	xhttp.send();
-}
-
-function upload()
-{
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (xhttp.readyState == 4 && xhttp.status == 200) {
-			document.getElementById("status").innerHTML = xhttp.responseText;
-		}
-	};
-	xhttp.open("POST", "../php/handler.php?r=upload", true);
-	xhttp.send();
-}
-
-function browse()
-{
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (xhttp.readyState == 4 && xhttp.status == 200) {
-			document.getElementById("status").innerHTML = xhttp.responseText;
-		}
-	};
-	xhttp.open("POST", "../php/handler.php?r=browse", true);
+	xhttp.open("POST", "handler.php?r=logout", true);
 	xhttp.send();
 }
