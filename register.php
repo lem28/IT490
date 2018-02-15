@@ -1,94 +1,67 @@
-<?php 
-ob_start();
-include('header.php');
-include_once("db_connect.php");
-session_start();
-if(isset($_SESSION['user_id'])) {
-	header("Location: index.php");
+<?php
+/* Registration process, inserts user info into the database
+   and sends account confirmation email message
+ */
+
+// Set session variables to be used on profile.php page
+$_SESSION['email'] = $_POST['email'];
+$_SESSION['first_name'] = $_POST['firstname'];
+$_SESSION['last_name'] = $_POST['lastname'];
+
+// Escape all $_POST variables to protect against SQL injections
+$first_name = $mysqli->escape_string($_POST['firstname']);
+$last_name = $mysqli->escape_string($_POST['lastname']);
+$email = $mysqli->escape_string($_POST['email']);
+$password = $mysqli->escape_string(password_hash($_POST['password'], PASSWORD_BCRYPT));
+$hash = $mysqli->escape_string( md5( rand(0,1000) ) );
+
+// Check if user with that email already exists
+$result = $mysqli->query("SELECT * FROM users WHERE email='$email'") or die($mysqli->error());
+
+// We know user email exists if the rows returned are more than 0
+if ( $result->num_rows > 0 ) {
+
+    $_SESSION['message'] = 'User with this email already exists!';
+    header("location: error.php");
+
 }
-$error = false;
-if (isset($_POST['signup'])) {
-	$name = mysqli_real_escape_string($conn, $_POST['name']);
-	$email = mysqli_real_escape_string($conn, $_POST['email']);
-	$password = mysqli_real_escape_string($conn, $_POST['password']);
-	$cpassword = mysqli_real_escape_string($conn, $_POST['cpassword']);	
-	if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
-		$error = true;
-		$uname_error = "Name must contain only alphabets and space";
-	}
-	if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
-		$error = true;
-		$email_error = "Please Enter Valid Email ID";
-	}
-	if(strlen($password) < 6) {
-		$error = true;
-		$password_error = "Password must be minimum of 6 characters";
-	}
-	if($password != $cpassword) {
-		$error = true;
-		$cpassword_error = "Password and Confirm Password doesn't match";
-	}
-	if (!$error) {
-		if(mysqli_query($conn, "INSERT INTO users(user, email, pass) VALUES('" . $name . "', '" . $email . "', '" . md5($password) . "')")) {
-			$success_message = "Successfully Registered! <a href='login.php'>Click here to Login</a>";
-		} else {
-			$error_message = "Error in registering...Please try again later!";
-		}
-	}
+else { // Email doesn't already exist in a database, proceed...
+
+    // active is 0 by DEFAULT (no need to include it here)
+    $sql = "INSERT INTO users (first_name, last_name, email, password, hash) "
+            . "VALUES ('$first_name','$last_name','$email','$password', '$hash')";
+
+    // Add user to the database
+    if ( $mysqli->query($sql) ){
+
+        $_SESSION['active'] = 0; //0 until user activates their account with verify.php
+        $_SESSION['logged_in'] = true; // So we know the user has logged in
+        $_SESSION['message'] =
+
+                 "Confirmation link has been sent to $email, please verify
+                 your account by clicking on the link in the message!";
+
+        // Send registration confirmation link (verify.php)
+        $to      = $email;
+        $subject = 'Account Verification';
+        $message_body = '
+        Hello '.$first_name.',
+
+        Thank you for signing up!
+
+        Please click this link to activate your account:
+
+        http://localhost/verify.php?email='.$email.'&hash='.$hash;
+
+        mail( $to, $subject, $message_body );
+
+        header("location: profile.php");
+
+    }
+
+    else {
+        $_SESSION['message'] = 'Registration failed!';
+        header("location: error.php");
+    }
+
 }
-?>
-<title>webdamn.com : Demo Login and Registration Script with PHP, MySQL</title>
-<script type="text/javascript" src="script/ajax.js"></script>
-<?php include('container.php');?>
-
-<div class="container">
-<h2>Example: Login and Registration Script with PHP, MySQL</h2>	
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4 well">
-			<form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="signupform">
-				<fieldset>
-					<legend>Sign Up</legend>
-
-					<div class="form-group">
-						<label for="name">Name</label>
-						<input type="text" name="name" placeholder="Enter Full Name" required value="<?php if($error) echo $name; ?>" class="form-control" />
-						<span class="text-danger"><?php if (isset($uname_error)) echo $uname_error; ?></span>
-					</div>
-					
-					<div class="form-group">
-						<label for="name">Email</label>
-						<input type="text" name="email" placeholder="Email" required value="<?php if($error) echo $email; ?>" class="form-control" />
-						<span class="text-danger"><?php if (isset($email_error)) echo $email_error; ?></span>
-					</div>
-
-					<div class="form-group">
-						<label for="name">Password</label>
-						<input type="password" name="password" placeholder="Password" required class="form-control" />
-						<span class="text-danger"><?php if (isset($password_error)) echo $password_error; ?></span>
-					</div>
-
-					<div class="form-group">
-						<label for="name">Confirm Password</label>
-						<input type="password" name="cpassword" placeholder="Confirm Password" required class="form-control" />
-						<span class="text-danger"><?php if (isset($cpassword_error)) echo $cpassword_error; ?></span>
-					</div>
-
-					<div class="form-group">
-						<input type="submit" name="signup" value="Sign Up" class="btn btn-primary" />
-					</div>
-				</fieldset>
-			</form>
-			<span class="text-success"><?php if (isset($success_message)) { echo $success_message; } ?></span>
-			<span class="text-danger"><?php if (isset($error_message)) { echo $error_message; } ?></span>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4 text-center">	
-		Already Registered? <a href="login.php">Login Here</a>
-		</div>
-	</div>	
-	<div style="margin:50px 0px 0px 0px;">
-		<a class="btn btn-default read-more" style="background:#3399ff;color:white" href="http://webdamn.com/login-and-registration-script-with-php-mysql" title="">Back to Tutorial</a>			
-	</div>
-</div>
-<?php include('footer.php');?> 

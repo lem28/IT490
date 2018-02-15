@@ -1,60 +1,32 @@
-<?php 
-ob_start();
-include('header.php');
-include_once("db_connect.php");
-session_start();
-if(isset($_SESSION['user_id'])!="") {
-	header("Location: index.php");
-}
-if (isset($_POST['login'])) {
-	$email = mysqli_real_escape_string($conn, $_POST['email']);
-	$password = mysqli_real_escape_string($conn, $_POST['password']);
-	$result = mysqli_query($conn, "SELECT * FROM users WHERE email = '" . $email. "' and pass = '" . md5($password). "'");
-	if ($row = mysqli_fetch_array($result)) {
-		$_SESSION['user_id'] = $row['uid'];
-		$_SESSION['user_name'] = $row['user'];		
-		header("Location: index.php");
-	} else {
-		$error_message = "Incorrect Email or Password!!!";
-	}
-}
-?>
-<title>webdamn.com : Demo Login and Registration Script with PHP, MySQL</title>
-<script type="text/javascript" src="script/ajax.js"></script>
-<?php include('../container.php');?>
+<?php
+/* User login process, checks if user exists and password is correct */
 
-<div class="container">
-	<h2>Example: Login and Registration Script with PHP, MySQL</h2>		
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4 well">
-			<form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="loginform">
-				<fieldset>
-					<legend>Login</legend>						
-					<div class="form-group">
-						<label for="name">Email</label>
-						<input type="text" name="email" placeholder="Your Email" required class="form-control" />
-					</div>	
-					<div class="form-group">
-						<label for="name">Password</label>
-						<input type="password" name="password" placeholder="Your Password" required class="form-control" />
-					</div>	
-					<div class="form-group">
-						<input type="submit" name="login" value="Login" class="btn btn-primary" />
-					</div>
-				</fieldset>
-			</form>
-			<span class="text-danger"><?php if (isset($error_message)) { echo $error_message; } ?></span>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4 text-center">	
-		New User? <a href="register.php">Sign Up Here</a>
-		</div>
-	</div>
-		
-		
-	<div style="margin:50px 0px 0px 0px;">
-		<a class="btn btn-default read-more" style="background:#3399ff;color:white" href="http://webdamn.com/login-and-registration-script-with-php-mysql" title="">Back to Tutorial</a>			
-	</div>
-</div>
-<?php include('footer.php');?> 
+// Escape email to protect against SQL injections
+$email = $mysqli->escape_string($_POST['email']);
+$result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
+
+if ( $result->num_rows == 0 ){ // User doesn't exist
+    $_SESSION['message'] = "User with that email doesn't exist!";
+    header("location: error.php");
+}
+else { // User exists
+    $user = $result->fetch_assoc();
+
+    if ( password_verify($_POST['password'], $user['password']) ) {
+        
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['first_name'] = $user['first_name'];
+        $_SESSION['last_name'] = $user['last_name'];
+        $_SESSION['active'] = $user['active'];
+        
+        // This is how we'll know the user is logged in
+        $_SESSION['logged_in'] = true;
+
+        header("location: profile.php");
+    }
+    else {
+        $_SESSION['message'] = "You have entered wrong password, try again!";
+        header("location: error.php");
+    }
+}
+
