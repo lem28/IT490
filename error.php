@@ -1,7 +1,6 @@
 <?php
 /* Displays all error messages */
 session_start();
-include_once "logger.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,8 +14,9 @@ include_once "logger.php";
     <p>
     <?php
     if( isset($_SESSION['message']) AND !empty($_SESSION['message']) ):
-        //echo $_SESSION['message'];
-        file_put_contents($errorlog, $_SESSION['message'], FILE_APPEND | LOCK_EX); 
+        echo $_SESSION['message'];
+        $date = date_create();
+        file_put_contents('error.log', "[".date_format($date, 'm-d-Y H:i:s')."] ".$_SESSION['message'].PHP_EOL, FILE_APPEND);
     else:
         header( "location: index.php" );
     endif;
