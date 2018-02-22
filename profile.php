@@ -21,41 +21,9 @@ else {
   <meta charset="UTF-8">
   <title>Welcome <?= $first_name.' '.$last_name ?></title>
   <?php include 'css/css.html'; ?>
-  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
-
-<div class="wrapper">
-        <div class="container">
-        	<div class="row">
-                <div class="col-md-12">
-                <header id="header">
-
-  <div class="slider">
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-
-                	<nav class="navbar navbar-default">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                          <span class="site-name"><b>Username<br/><br/></b></span>
-                          <span class="site-description">IT490 project</span>
-                        </div>
-                    
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="mainNav" >
-                          <ul class="nav main-menu navbar-nav">
-			    <!-- replace # with link -->
-			    <a href="#"><button class="button button-block" name="SEARCH GAMES"/>SEARCH GAMES</button></a> 
-			    <a href="#"><button class="button button-block" name="OWNED"/>OWNED</button></a> 
-			    <a href="#"><button class="button button-block" name="RATED"/>RATED</button></a> 
-			    <a href="../logout.php"><button class="button button-block" name="LOGOUT"/>LOGOUT</button></a> 
-                          </ul>
-                    
-                </header><!--/#HEADER-->
 <body>
   <div class="form">
 
