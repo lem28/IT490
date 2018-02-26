@@ -22,7 +22,7 @@ a:hover {
 }
 
 .form {
-  background: rgba(19, 35, 47, 0.9); 
+  background: rgba(19, 35, 47, 0.9);
   padding: 40px;
   max-width: 600px;
   margin: 40px auto;
@@ -181,7 +181,7 @@ textarea {
   border: 0;
   outline: none;
   border-radius: 0;
-  padding: 15px 0;
+  padding: 15px;
   font-size: 2rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -199,6 +199,7 @@ textarea {
 .button-block {
   display: block;
   width: 100%;
+  margin:0 auto;
 }
 
 .forgot {

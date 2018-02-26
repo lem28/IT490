@@ -75,25 +75,20 @@ else {
  	 <div class="slider">
   	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
-                	<nav class="navbar navbar-default">
                         <!-- Brand and toggle get grouped for better mobile display -->
-                          <span class="site-name"><b>Username<br/><br/></b></span>
-                          <span class="site-description">IT490 project</span>
                         </div>
-                    
+
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="mainNav" >
-                          <ul class="nav main-menu navbar-nav">
+                          <!--<ul class="nav main-menu navbar-nav">-->
 			    <!-- replace # with link -->
-			    <a href="#"><button class="button button-block" name="SEARCH GAMES"/>SEARCH GAMES</button></a> 
-			    <a href="#"><button class="button button-block" name="OWNED"/>OWNED</button></a> 
-			    <a href="#"><button class="button button-block" name="RATED"/>RATED</button></a> 
-			    <a href="../logout.php"><button class="button button-block" name="LOGOUT"/>LOGOUT</button></a> 
-                          </ul>
+  			    <!--<a href="../logout.php"><button class="button button-block" name="LOGOUT"/>LOGOUT</button></a>
+        <!--</ul>-->
 			</div>
 			</div>
-
-          <a href="logout.php"><button class="button button-block" name="logout"/>Log Out</button></a>
+      <a href="#"><button class="button button-block" name="SEARCH GAMES"/>Search Games</button></a>
+      <a href="#"><button class="button button-block" name="OWNED"/>Owned</button></a>
+      <a href="logout.php"><button class="button button-block" name="logout"/>Log Out</button></a>
 
     </div>
 
