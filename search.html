@@ -1,4 +1,4 @@
-<?php
+<!--<?php
 /* Displays user information and some useful messages */
 session_start();
 
@@ -13,56 +13,52 @@ else {
     $last_name = $_SESSION['last_name'];
 
 }
-?>
+?>-->
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-            <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet">
-                <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
-                </script>
-                <script src="//code.jquery.com/jquery-1.11.1.min.js">
-                </script>
-                <!------ Include the above in your HEAD tag ---------->
-                <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet prefetch">
-                    <title>
-                        Welcome
-                        <?= $first_name.' '.$last_name ?>
-                    </title>
-                    <?php include 'css/css.html'; ?>
-                    <link href="css/style.css" rel="stylesheet">
-                    </link>
-                </link>
-            </link>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+            <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' type='text/css'>
+            </script>
+            <link href="css/style.css" rel="stylesheet"/>
+            <script src="js/index.js">
+            </script>
+            <title>
+                Welcome
+                <?= $first_name.' '.$last_name ?>
+            </title>
+            <?php include 'css/css.html'; ?>
         </meta>
     </head>
     <body>
-        <div class="form">
-            <h1>
-                Search PC games
-            </h1>
-            <?php
-
-
-
-          <h2>
-            <?php echo $first_name.' '.$last_name; ?>
-        </div>
+        <div class="form"><h1>Search PC games</h1></div>
+        <p><?= $email ?></p>
+        <input placeholder="search for games here" type="text">
+        </input>
+        <script>
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var steamApps = JSON.parse(this.responseText);
+            document.getElementById("demo").innerHTML = JSON.stringify(steamApps);
+          }
+        };
+        xmlhttp.open("GET", "steamApps.json", true);
+        xmlhttp.send();
+        console.log("type of data: "+typeof(steamApps));
+        console.log("data: "+JSON.stringify(steamApps));
+        </script>
+        <b id="demo">
+        </b>
+        <a href="profile.php">
+            <button class="button button-block" name="Back to profile">
+            HOME
+            </button>
+        </a>
     </body>
 </html>
-<p>
-    <?= $email ?>
-</p>
-<input placeholder="search for games here" type="text">
-    <b>
-    </b>
-</input>
-<a href="profile.php">
-    <button class="button button-block" name="Back to profile">
-    </button>
-    HOME
-</a>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js">
-</script>
-<script src="js/index.js">
-</script>
