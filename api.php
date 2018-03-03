@@ -1,6 +1,6 @@
 <?php
-  $name = $_POST['name'];
-  $name = str_replace(" ", '%20', $name);
+  $q = $_REQUEST["q"];
+  $name = str_replace(" ", '%20', $q);
   $baseURL = "https://www.giantbomb.com/api/search/?api_key=";
   $apiKey = "1eb68d69b5b8c3a4d37f93116ba4968ccf789a33";
   $query = "&query=";
