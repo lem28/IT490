@@ -8,20 +8,19 @@ session_start();
 <html>
 <head>
   <title>Sign-Up/Login Form</title>
-  <?php include 'css/css.html'; ?>
+  <?php include 'css/css.html';?>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-    if (isset($_POST['login'])) { //user logging in
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['login'])) {
+        //user logging in
 
         require 'login.php';
 
-    }
-
-    elseif (isset($_POST['register'])) { //user registering
+    } elseif (isset($_POST['register'])) {
+        //user registering
 
         require 'register.php';
 

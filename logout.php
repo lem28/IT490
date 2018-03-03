@@ -9,12 +9,12 @@ session_destroy();
 <head>
   <meta charset="UTF-8">
   <title>Error</title>
-  <?php include 'css/css.html'; ?>
+  <?php include 'css/css.html';?>
 </head>
 
 <body>
     <div class="form">
-          <h1><?= 'You have been successfully logged out.'; ?></h1>
+          <h1><?='You have been successfully logged out.';?></h1>
 
           <a href="index.php"><button class="button button-block"/>Home</button></a>
 

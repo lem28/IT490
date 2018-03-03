@@ -47,7 +47,7 @@
     padding: 12px 16px;
     font-size: 16px;
     cursor: pointer;
-	margin: 10px 2px;
+    margin: 10px 2px;
 }
 
 /* Darker background on mouse-over */
@@ -63,15 +63,14 @@
 <button class="btn"><i class="fa fa-home"></i> Home</button>
 </div>
 <div id="mySidenav" class="sidenav">
-  
-  
+
+
 </div>
 
 <div align= "center" style="margin-right:100px;">
   <h2>Owned Games</h2>
- 
+
 </div>
 </div>
 </body>
-</html> 
-
+</html>

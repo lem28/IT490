@@ -4,29 +4,29 @@ session_start();
 
 // Check if user is logged in using the session variable
 /*if ( $_SESSION['logged_in'] != 1 ) {
-  $_SESSION['message'] = "You must log in before viewing your profile page!";
-  header("location: error.php");
+$_SESSION['message'] = "You must log in before viewing your profile page!";
+header("location: error.php");
 }
 else {
-    // Makes it easier to read
-    $first_name = $_SESSION['first_name'];
-    $last_name = $_SESSION['last_name'];
+// Makes it easier to read
+$first_name = $_SESSION['first_name'];
+$last_name = $_SESSION['last_name'];
 
 }
-?>
+?>*/
 
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+< !DOCTYPEhtml >
+< html >
+< head >
+< metacharset = "UTF-8" >
+< linkhref    = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"rel    = "stylesheet"id    = "bootstrap-css" >
+< scriptsrc   = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js" >  <  / script >
+< scriptsrc   = "//code.jquery.com/jquery-1.11.1.min.js" >  <  / script >
+< !------include theaboveinyourHEADtag---------- >
 
-<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
-  <title>Welcome <?= $first_name.' '.$last_name ?></title>
-  <?php include 'css/css.html'; ?>
+< linkrel               = 'stylesheet prefetch'href               = 'http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' >
+< title > Welcome <  ?  = $first_name . ' ' . $last_name?></title>
+  <?php include 'css/css.html';?>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -43,10 +43,8 @@ else {
 
           <?php
 
-
-
-          <h2><?php echo $first_name.' '.$last_name; ?></h2>
-          <p><?= $email ?></p>
+< h2 >  <  ? phpecho $first_name . ' ' . $last_name;?></h2>
+          <p><?=$email?></p>
 
     <div class="wrapper">
         <div class="container">
