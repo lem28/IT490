@@ -15,63 +15,53 @@ if ($_SESSION['logged_in'] != 1) {
 }
 ?>
 <!DOCTYPE html>
-<html >
+<html>
 <head>
-  <meta charset="UTF-8">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
-  <title>Welcome <?=$first_name . ' ' . $last_name?></title>
-  <?php include 'css/css.html';?>
-  <link rel="stylesheet" href="css/style.css">
+	<meta charset="UTF-8">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+	</script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js">
+	</script><!--==== Include the above in your HEAD tag ========-->
+	<link href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet prefetch'>
+	<title>Welcome <?=$first_name . ' ' . $last_name?>
+	</title><?php include 'css/css.html';?>
+	<link href="css/style.css" rel="stylesheet">
 </head>
-
 <body>
-  <div class="form">
+	<div class="form">
+		<h1>Welcome</h1>
+		<p><?php
 
-          <h1>Welcome</h1>
+		// Display message about account verification link only once
+		if (isset($_SESSION['message'])) {
+		    echo $_SESSION['message'];
 
-          <p>
-          <?php
+		    // Don't annoy the user with more messages upon page refresh
+		    unset($_SESSION['message']);
+		}
 
-// Display message about account verification link only once
-if (isset($_SESSION['message'])) {
-    echo $_SESSION['message'];
+		?></p><?php
 
-    // Don't annoy the user with more messages upon page refresh
-    unset($_SESSION['message']);
-}
+		// Keep reminding the user this account is not active, until they activate
+		if (!$active) {
+		    echo
+		        '<div class="info">
+		              Account is unverified, please confirm your email by clicking
+		              on the email link!
+		              </div>';
+		}
 
-?>
-          </p>
-
-          <?php
-
-// Keep reminding the user this account is not active, until they activate
-if (!$active) {
-    echo
-        '<div class="info">
-              Account is unverified, please confirm your email by clicking
-              on the email link!
-              </div>';
-}
-
-?>
-
-          <h2><?php echo $first_name . ' ' . $last_name; ?></h2>
-          <p><?=$email?></p>
-
-          <a href="search.html"><button class="button button-block" name="SEARCH GAMES"/>Search Games</button></a>
-          <br><a href="owned.php"><button class="button button-block" name="OWNED"/>Owned</button></a>
-          <br><a href="logout.php"><button class="button button-block" name="logout"/>Log Out</button></a>
-
-    </div>
-
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="js/index.js"></script>
-
+		?>
+		<h2><?php echo $first_name . ' ' . $last_name; ?></h2>
+		<p><?=$email?>
+		</p><a href="search.html"><button class="button button-block" name="SEARCH GAMES"></button>Search Games</a><br>
+		<a href="owned.php"><button class="button button-block" name="OWNED"></button>Owned</a><br>
+		<a href="logout.php"><button class="button button-block" name="logout"></button>Log Out</a>
+	</div>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'>
+	</script>
+	<script src="js/index.js">
+	</script>
 </body>
 </html>

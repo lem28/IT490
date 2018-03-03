@@ -23,45 +23,27 @@ if (isset($_GET['email']) && !empty($_GET['email']) and isset($_GET['hash']) && 
 }
 ?>
 <!DOCTYPE html>
-<html >
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Reset Your Password</title>
-  <?php include 'css/css.html';?>
+	<meta charset="UTF-8">
+	<title>Reset Your Password</title><?php include 'css/css.html';?>
 </head>
-
 <body>
-    <div class="form">
-
-          <h1>Choose Your New Password</h1>
-
-          <form action="reset_password.php" method="post">
-
-          <div class="field-wrap">
-            <label>
-              New Password<span class="req">*</span>
-            </label>
-            <input type="password"required name="newpassword" autocomplete="off"/>
-          </div>
-
-          <div class="field-wrap">
-            <label>
-              Confirm New Password<span class="req">*</span>
-            </label>
-            <input type="password"required name="confirmpassword" autocomplete="off"/>
-          </div>
-
-          <!-- This input field is needed, to get the email of the user -->
-          <input type="hidden" name="email" value="<?=$email?>">
-          <input type="hidden" name="hash" value="<?=$hash?>">
-
-          <button class="button button-block"/>Apply</button>
-
-          </form>
-
-    </div>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="js/index.js"></script>
-
+	<div class="form">
+		<h1>Choose Your New Password</h1>
+		<form action="reset_password.php" method="post">
+			<div class="field-wrap">
+				<label>New Password<span class="req">*</span></label> <input autocomplete="off" name="newpassword" required="" type="password">
+			</div>
+			<div class="field-wrap">
+				<label>Confirm New Password<span class="req">*</span></label> <input autocomplete="off" name="confirmpassword" required="" type="password">
+			</div><!-- This input field is needed, to get the email of the user -->
+			<input name="email" type="hidden" value="&lt;?=$email?&gt;"> <input name="hash" type="hidden" value="&lt;?=$hash?&gt;"> <button class="button button-block"></button>Apply
+		</form>
+	</div>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'>
+	</script>
+	<script src="js/index.js">
+	</script>
 </body>
 </html>
