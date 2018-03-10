@@ -3,7 +3,7 @@ i<?php
 //connection variables
 $host = 'localhost';
 $user = 'root';
-$password = 'macbook2015';
+$password = 'ubuntu64';
 
 //create mysql connection
 $mysqli = new mysqli($host,$user,$password);
@@ -13,22 +13,41 @@ if ($mysqli->connect_errno) {
 }
 
 //create the database
-if ( !$mysqli->query('CREATE DATABASE accounts') ) {
+if ( !$mysqli->query('CREATE DATABASE accounts;use accounts;') ) {
     printf("Errormessage: %s\n", $mysqli->error);
 }
 
 //create users table with all the fields
 $mysqli->query('
-CREATE TABLE 'accounts'.'users'
+CREATE TABLE accounts.users
 (
-    'id' INT NOT NULL AUTO_INCREMENT,
-    'first_name' VARCHAR(50) NOT NULL,
-     'last_name' VARCHAR(50) NOT NULL,
-    'email' VARCHAR(100) NOT NULL,
-    'password' VARCHAR(100) NOT NULL,
-    'hash' VARCHAR(32) NOT NULL,
-    'active' BOOL NOT NULL DEFAULT 0,
-PRIMARY KEY ('id')
+    id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    hash VARCHAR(32) NOT NULL,
+    active BOOL NOT NULL DEFAULT 0,
+PRIMARY KEY (id)
+);') or die($mysqli->error);
+
+//create the database
+if ( !$mysqli->query('CREATE DATABASE userdata; use userdata;') ) {
+    printf("Errormessage: %s\n", $mysqli->error);
+}
+
+//create users table with all the fields
+$mysqli->query('
+CREATE TABLE userdata.recommended_games
+(
+    id INT(11) NOT NULL AUTO_INCREMENT,
+   	steam_app_id INT(11) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    recommend enum(\'null\',\'r\',\'dr\') NOT NULL,
+    game_name VARCHAR(255) NOT NULL,
+PRIMARY KEY (id)
 );') or die($mysqli->error);
 
 ?>
