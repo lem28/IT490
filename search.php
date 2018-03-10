@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
 	<title>Welcome <? = $first_name.' '.$last_name?>
+=======
+	<title>Search for Games
+>>>>>>> ee0d7f83c2281c49f75d61a4410a61d971ebfb3a
 	</title>
 	<meta charset="UTF-8">
 	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
@@ -16,8 +20,11 @@
 <body>
 	<div class="form">
 	<h1>Search PC games</h1>
+<<<<<<< HEAD
 	<h2><?php echo $first_name.' '.$last_name;?></h2>
 	<h2><?=$email?></h2>
+=======
+>>>>>>> ee0d7f83c2281c49f75d61a4410a61d971ebfb3a
 	<div class="wrapper">
 		<div class="container">
 			<div class="row">
@@ -28,7 +35,11 @@
 							<div class="collapse navbar-collapse" id="mainNav"></div>
 						</div>
 				<script>
+<<<<<<< HEAD
 					var apiResult;	
+=======
+					var apiResult;
+>>>>>>> ee0d7f83c2281c49f75d61a4410a61d971ebfb3a
 					function showHint(str) {
 					var xhr = new XMLHttpRequest();
 					xhr.onreadystatechange = function()
@@ -45,11 +56,19 @@
 				</script>
 				<div>
 					<p>Start typing a name in the input field below:</p>
+<<<<<<< HEAD
 					<input onkeyup="showHint(this.value)" type="text">
 					<div id="result"></div>
 				</div>
 				</header>
 				<a href="profile.php"><button class="button button-block" name="HOME">HOME</button></a>
+=======
+					<input onkeyup="showHint(this.value)" type="text"><br>
+					<div id="result"></div>
+				</div>
+				</header>
+				<a href="profile.php"><button class="button button-block" name="BACK">Back to Profile</button></a>
+>>>>>>> ee0d7f83c2281c49f75d61a4410a61d971ebfb3a
 					</div>
 				</div>
 			</div>
