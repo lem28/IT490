@@ -50,7 +50,7 @@ display_owned($email);
 ?>
 =======
   require 'user_functions.php';
-  
+
   display_owned($email);
 
    ?>

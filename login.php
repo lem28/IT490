@@ -1,5 +1,26 @@
 <?php
-/* User login process, checks if user exists and password is correct */
+
+require_once ('rabbitmqphp_example/authClient.php');
+$email = $_POST['email'];
+$pass = $_POST['password'];
+
+$response = authentication($email, $pass);
+
+if($response == false){
+      echo "Login Failed";
+      $_SESSION['message'] = "You have entered wrong password, try again!";
+      header("location: error.php");
+}
+else{
+      echo "Login Successful";
+      $_SESSION['logged_in'] = true;
+      $_SESSION['email'] = $user['email'];
+      $_SESSION['first_name'] = $user['first_name'];
+      $_SESSION['last_name'] = $user['last_name'];
+      $_SESSION['active'] = $user['active'];
+      header("location: profile.php");
+}
+/* User login process, checks if user exists and password is correct
 // Escape email to protect against SQL injections
 $email  = $mysqli->escape_string($_POST['email']);
 $result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
@@ -27,4 +48,4 @@ if ($result->num_rows == 0) {
         $_SESSION['message'] = "You have entered wrong password, try again!";
         header("location: error.php");
     }
-}
+}*/
