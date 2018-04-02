@@ -139,7 +139,7 @@ function display_owned($email){
           // output data of each row
           while($row = $result->fetch_assoc()) {
 
-              echo "<tr><td>".$row["game_name"]."</td>";
+              echo "<tr><td><a href='/game.php?gameid=".$row["steam_app_id"]."'>".$row["game_name"]."</a></td>";
 
               switch($row["rating"]){
                 case "like":
@@ -185,7 +185,8 @@ function display_recommended(){
           // output data of each row
           while($row = $result->fetch_assoc()) {
 
-              echo "<tr><td>".$row["game_name"]."</td><td>".ucwords($row["first_name"])." ".ucwords($row["last_name"])."</td></tr>";
+              //echo "<tr><td>".$row["game_name"]."</td><td>".ucwords($row["first_name"])." ".ucwords($row["last_name"])."</td></tr>";
+              echo "<tr><td><a href='/game.php?gameid=".$row["steam_app_id"]."'>".$row["game_name"]."</a></td><td>".ucwords($row["first_name"])." ".ucwords($row["last_name"])."</td></tr>";
 
           }
           echo "</table>";
@@ -236,7 +237,7 @@ function display_watchlist($email){
 
               $newformat = date('m-d-Y',$time);
 
-              echo "<tr><td>".$row["game_name"]."</td><td>".$newformat."</td></tr>";
+              echo "<tr><td><a href='/game.php?gameid=".$row["steam_app_id"]."'>".$row["game_name"]."</a></td><td>".$newformat."</td></tr>";
 
           }
           echo "</table>";

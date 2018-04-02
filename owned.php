@@ -37,7 +37,7 @@ else {
   <?php
 
   require 'user_functions.php';
-  
+
   display_owned($email);
 
    ?>

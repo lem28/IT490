@@ -1,8 +1,8 @@
-
-[02-22-2018 17:15:32] User with email: jt8@njit.edu doesn't exist!
-[02-22-2018 17:17:30] User with email: sdfsdfsdfsdfs@sasfd.com doesn't exist!
-[02-28-2018 18:38:10] You must log in first!
-[03-01-2018 17:08:16] You must log in first!
-[03-03-2018 18:14:45] You must log in first!
-[03-04-2018 17:19:01] You must log in before viewing this page!
-[03-07-2018 15:17:38] You must log in before viewing this page!
+[Mon Apr 02 15:35:26.652680 2018] [core:error] [pid 5564] (13)Permission denied: [client 127.0.0.1:46314] AH00035: access to /js/index.js denied (filesystem path '/var/www/IT490/js/index.js') because search permissions are missing on a component of the path, referer: http://localhost/index.php
+[Mon Apr 02 15:35:26.842788 2018] [core:error] [pid 5564] (13)Permission denied: [client 127.0.0.1:46314] AH00035: access to /js/index.js denied (filesystem path '/var/www/IT490/js/index.js') because search permissions are missing on a component of the path, referer: http://localhost/index.php
+[Mon Apr 02 15:35:35.205378 2018] [:error] [pid 5548] [client 127.0.0.1:46322] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/rabbitmqphp_example/authClient.php on line 30, referer: http://localhost/index.php
+[Mon Apr 02 15:35:35.239957 2018] [:error] [pid 5548] [client 127.0.0.1:46322] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
+[Mon Apr 02 15:35:38.803150 2018] [core:error] [pid 5548] (13)Permission denied: [client 127.0.0.1:46322] AH00035: access to /js/index.js denied (filesystem path '/var/www/IT490/js/index.js') because search permissions are missing on a component of the path, referer: http://localhost/index.php
+[Mon Apr 02 15:35:38.950456 2018] [core:error] [pid 5548] (13)Permission denied: [client 127.0.0.1:46322] AH00035: access to /js/index.js denied (filesystem path '/var/www/IT490/js/index.js') because search permissions are missing on a component of the path, referer: http://localhost/index.php
+[Mon Apr 02 15:35:50.964641 2018] [:error] [pid 5549] [client 127.0.0.1:46330] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/rabbitmqphp_example/authClient.php on line 30, referer: http://localhost/index.php
+[Mon Apr 02 15:35:51.024671 2018] [:error] [pid 5549] [client 127.0.0.1:46330] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
