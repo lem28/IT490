@@ -1,10 +1,10 @@
 <?php
 
-require_once ('rabbitmqphp_example/authClient.php');
+require ('authClient.php');
 $email = $_POST['email'];
-$pass = $_POST['password'];
+$userpass = $_POST['password'];
 
-$response = authentication($email, $pass);
+$response = authentication($email, $userpass);
 
 if($response == false){
       echo "Login Failed";
@@ -20,6 +20,15 @@ else{
       $_SESSION['active'] = $user['active'];
       header("location: profile.php");
 }
+
+
+
+
+
+
+
+
+
 /* User login process, checks if user exists and password is correct
 // Escape email to protect against SQL injections
 $email = $mysqli->escape_string($_POST['email']);
