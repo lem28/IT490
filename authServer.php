@@ -7,47 +7,96 @@ require_once('rabbitMQLib.inc');
 function authentication($email,$userpass)
 {
 
-  $host = 'localhost';
-  $user = 'root';
-  $dbpass = 'Jonathan723';
-  $db = 'accounts';
-  $mysqli = new mysqli($host,$user,$dbpass,$db) or die($mysqli->error);
+      $host = 'localhost';
+      $user = 'root';
+      $dbpass = 'Jonathan723';
+      $db = 'accounts';
+      $mysqli = new mysqli($host,$user,$dbpass,$db) or die($mysqli->error);
 
-/* User login process, checks if user exists and password is correct */
-// Escape email to protect against SQL injections
-$email = $mysqli->escape_string($email);
-$result = $mysqli->query("SELECT * FROM users WHERE email='$email'");
+      $userinfo = array();
 
-if ( $result->num_rows == 0 ){ // User doesn't exist
-    echo "User Doesnt Exist\n";
-    return false;
-}
-else { // User exists
-    echo "User Exists\n";
+      $email = $mysqli->escape_string($email);
+      $result = $mysqli->query("SELECT * FROM users WHERE email='$email' and password='$userpass'");
 
-    $user = $result->fetch_assoc();
+      $user = $result->fetch_assoc();
 
-    foreach($user as $key => $value){
-      echo "Key: $key; Value: $value\n";
-    }
-
-    echo "dbpass = ".$user['password'].PHP_EOL;
-    echo "pass = ".$userpass.PHP_EOL;
-
-    if ( $userpass === $user['password'] ){
-      echo "Correct Password";
-      return true;
-    }
-    else{
-      return false;
-    }
-}
+      if ( $result->num_rows == 0 ){ // User doesn't exist
+          echo "Incorrect Credentials\n";
+          return false;
+      }
+      else { // User exists
+          echo "Correct Credentials\n";
+          $userinfo['email'] = $user['email'];
+          $userinfo['first_name'] = $user['first_name'];
+          $userinfo['last_name'] = $user['last_name'];
+          $userinfo['active'] = $user['active'];
+          return json_encode($userinfo);
+      }
 
 }
 
 
-/*function registration($firstname, $lastname, $userpass, $email){
-}*/
+function registration($firstname, $lastname, $email, $password){
+
+      $host = 'localhost';
+      $user = 'root';
+      $dbpass = 'Jonathan723';
+      $db = 'accounts';
+      $mysqli = new mysqli($host,$user,$dbpass,$db) or die($mysqli->error);
+
+      $userinfo = array();
+
+      // Check if user with that email already exists
+      $result = $mysqli->query("SELECT * FROM users WHERE email='$email'") or die($mysqli->error());
+
+      if ( $result->num_rows > 0 ) { //Email already exists
+          return false;
+      }
+      else { // Email doesn't already exist in a database, proceed...
+
+          //connection to database for user related tables
+          $user = new mysqli('localhost', 'root', 'Jonathan723', 'userdata');
+
+          //create user table for owned games
+          $owned = "CREATE TABLE `owned_$email`(
+            steam_app_id INT NOT NULL,
+            rating ENUM('null','like','dislike') DEFAULT 'null',
+            game_name VARCHAR(255),
+            PRIMARY KEY (steam_app_id)
+          )";
+          $user->query($owned) or die($user->error);
+
+          //table for user preferences
+          $pref = "CREATE TABLE `pref_$email`(
+            genre_id INT NOT NULL AUTO_INCREMENT,
+            genre INT NOT NULL,
+            PRIMARY KEY (genre_id)
+          )";
+          $user->query($pref) or die($user->error);
+
+          //table for user preferences
+          $watch = "CREATE TABLE `watch_$email`(
+            steam_app_id INT NOT NULL,
+            game_name VARCHAR(255),
+            exp_release_date DATE,
+            PRIMARY KEY (steam_app_id)
+          )";
+          $user->query($watch) or die($user->error);
+
+          //insert user info into users table
+          $sql = "INSERT INTO users (first_name, last_name, email, password) "
+                  . "VALUES ('$firstname','$lastname','$email','$password')";
+          $mysqli->query($sql) or die($mysqli->error);
+
+          $userinfo['email'] = $email;
+          $userinfo['first_name'] = $firstname;
+          $userinfo['last_name'] = $lastname;
+
+          echo "Creating account...\n";
+          return json_encode($userinfo);
+
+        }
+}
 
 function requestProcessor($request)
 {
