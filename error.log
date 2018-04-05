@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 [02-22-2018 17:15:32] User with email: jt8@njit.edu doesn't exist!
@@ -26,3 +27,79 @@
 [Mon Apr 02 16:50:37.612718 2018] [:error] [pid 1391] [client 127.0.0.1:35372] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/rabbitmqphp_example/authClient.php on line 30, referer: http://localhost/index.php
 [Mon Apr 02 16:50:37.651952 2018] [:error] [pid 1391] [client 127.0.0.1:35372] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
 >>>>>>> 9c5f3aa5d6b1dfa84487685c05c80eeae892fc3b
+=======
+[Tue Apr 03 14:40:07.775059 2018] [:error] [pid 1361] [client 127.0.0.1:60112] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/
+[Tue Apr 03 14:40:07.894868 2018] [:error] [pid 1361] [client 127.0.0.1:60112] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/
+[Tue Apr 03 14:43:42.383306 2018] [:error] [pid 2648] [client 127.0.0.1:60160] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/
+[Tue Apr 03 14:43:42.439136 2018] [:error] [pid 2648] [client 127.0.0.1:60160] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/
+[Tue Apr 03 14:51:38.470902 2018] [:error] [pid 3101] [client 127.0.0.1:60310] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/
+[Tue Apr 03 14:51:38.490158 2018] [:error] [pid 3101] [client 127.0.0.1:60310] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/
+[Tue Apr 03 14:55:49.477765 2018] [:error] [pid 3244] [client 127.0.0.1:60340] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 14:55:49.495273 2018] [:error] [pid 3244] [client 127.0.0.1:60340] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 14:57:54.870800 2018] [:error] [pid 3614] [client 127.0.0.1:60358] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 14:57:54.900185 2018] [:error] [pid 3614] [client 127.0.0.1:60358] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 14:58:24.420231 2018] [:error] [pid 3615] [client 127.0.0.1:60370] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 14:58:24.442350 2018] [:error] [pid 3615] [client 127.0.0.1:60370] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 15:08:58.246047 2018] [:error] [pid 3621] [client 127.0.0.1:60734] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 15:08:58.267764 2018] [:error] [pid 3621] [client 127.0.0.1:60734] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 15:10:08.915371 2018] [:error] [pid 3612] [client 127.0.0.1:60752] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/
+[Tue Apr 03 15:10:08.940399 2018] [:error] [pid 3612] [client 127.0.0.1:60752] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/
+[Tue Apr 03 15:12:23.276307 2018] [:error] [pid 3611] [client 127.0.0.1:60768] PHP Warning:  file_put_contents(reg.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/register.php on line 93, referer: http://localhost/index.php
+[Tue Apr 03 15:12:40.379499 2018] [:error] [pid 3621] [client 127.0.0.1:60788] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 15:12:40.405109 2018] [:error] [pid 3621] [client 127.0.0.1:60788] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 15:13:00.644769 2018] [:error] [pid 3613] [client 127.0.0.1:60798] PHP Warning:  file_put_contents(reg.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/register.php on line 93, referer: http://localhost/index.php
+[Tue Apr 03 15:13:10.122337 2018] [:error] [pid 3614] [client 127.0.0.1:60810] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 15:13:10.137684 2018] [:error] [pid 3614] [client 127.0.0.1:60810] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 15:13:47.916714 2018] [:error] [pid 3615] [client 127.0.0.1:60826] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/
+[Tue Apr 03 15:13:47.930960 2018] [:error] [pid 3615] [client 127.0.0.1:60826] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/
+[Tue Apr 03 15:16:10.441263 2018] [:error] [pid 3621] [client 127.0.0.1:60850] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 15:16:10.455554 2018] [:error] [pid 3621] [client 127.0.0.1:60850] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 15:16:54.522299 2018] [:error] [pid 3614] [client 127.0.0.1:60866] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 15:16:54.529622 2018] [:error] [pid 3614] [client 127.0.0.1:60866] PHP Warning:  Illegal string offset 'email' in /home/jnisbet/git/IT490-1/login.php on line 17, referer: http://localhost/index.php
+[Tue Apr 03 15:16:54.529660 2018] [:error] [pid 3614] [client 127.0.0.1:60866] PHP Warning:  Illegal string offset 'first_name' in /home/jnisbet/git/IT490-1/login.php on line 18, referer: http://localhost/index.php
+[Tue Apr 03 15:16:54.529670 2018] [:error] [pid 3614] [client 127.0.0.1:60866] PHP Warning:  Illegal string offset 'last_name' in /home/jnisbet/git/IT490-1/login.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 15:16:54.529679 2018] [:error] [pid 3614] [client 127.0.0.1:60866] PHP Warning:  Illegal string offset 'active' in /home/jnisbet/git/IT490-1/login.php on line 20, referer: http://localhost/index.php
+[Tue Apr 03 15:24:12.233255 2018] [:error] [pid 4366] [client 127.0.0.1:60882] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 15:24:12.252663 2018] [:error] [pid 4366] [client 127.0.0.1:60882] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 15:40:41.525884 2018] [:error] [pid 7503] [client 127.0.0.1:60924] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/
+[Tue Apr 03 15:40:41.559268 2018] [:error] [pid 7503] [client 127.0.0.1:60924] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/
+[Tue Apr 03 15:45:28.706295 2018] [:error] [pid 7501] [client 127.0.0.1:60938] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 15:45:28.724998 2018] [:error] [pid 7501] [client 127.0.0.1:60938] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 15:47:21.664447 2018] [:error] [pid 7584] [client 127.0.0.1:60958] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 15:47:21.687562 2018] [:error] [pid 7584] [client 127.0.0.1:60958] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 17:44:18.447952 2018] [:error] [pid 3255] [client 127.0.0.1:39434] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/
+[Tue Apr 03 17:44:18.537051 2018] [:error] [pid 3255] [client 127.0.0.1:39434] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/
+[Tue Apr 03 17:45:36.639293 2018] [:error] [pid 3256] [client 127.0.0.1:39450] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 17:45:36.660624 2018] [:error] [pid 3256] [client 127.0.0.1:39450] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 17:47:23.589297 2018] [:error] [pid 3286] [client 127.0.0.1:39464] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 17:47:23.627715 2018] [:error] [pid 3286] [client 127.0.0.1:39464] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 17:48:24.849133 2018] [:error] [pid 3255] [client 127.0.0.1:39478] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 17:48:24.879811 2018] [:error] [pid 3255] [client 127.0.0.1:39478] PHP Notice:  Undefined index: logged_in in /home/jnisbet/git/IT490-1/profile.php on line 6, referer: http://localhost/index.php
+[Tue Apr 03 17:48:24.879849 2018] [:error] [pid 3255] [client 127.0.0.1:39478] PHP Notice:  Undefined variable: first_name in /home/jnisbet/git/IT490-1/profile.php on line 28, referer: http://localhost/index.php
+[Tue Apr 03 17:48:24.879861 2018] [:error] [pid 3255] [client 127.0.0.1:39478] PHP Notice:  Undefined variable: last_name in /home/jnisbet/git/IT490-1/profile.php on line 28, referer: http://localhost/index.php
+[Tue Apr 03 17:48:24.879893 2018] [:error] [pid 3255] [client 127.0.0.1:39478] PHP Notice:  Undefined variable: first_name in /home/jnisbet/git/IT490-1/profile.php on line 66, referer: http://localhost/index.php
+[Tue Apr 03 17:48:24.879903 2018] [:error] [pid 3255] [client 127.0.0.1:39478] PHP Notice:  Undefined variable: last_name in /home/jnisbet/git/IT490-1/profile.php on line 66, referer: http://localhost/index.php
+[Tue Apr 03 17:48:24.879911 2018] [:error] [pid 3255] [client 127.0.0.1:39478] PHP Notice:  Undefined variable: email in /home/jnisbet/git/IT490-1/profile.php on line 67, referer: http://localhost/index.php
+[Tue Apr 03 17:48:24.918279 2018] [:error] [pid 3255] [client 127.0.0.1:39478] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 17:58:50.531482 2018] [:error] [pid 3286] [client 127.0.0.1:39520] PHP Notice:  Undefined variable: hash in /home/jnisbet/git/IT490-1/register.php on line 86, referer: http://localhost/
+[Tue Apr 03 17:58:51.129215 2018] [:error] [pid 3286] [client 127.0.0.1:39520] PHP Warning:  file_put_contents(reg.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/register.php on line 94, referer: http://localhost/
+[Tue Apr 03 18:00:57.392731 2018] [:error] [pid 3254] [client 127.0.0.1:39550] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/
+[Tue Apr 03 18:00:57.453894 2018] [:error] [pid 3254] [client 127.0.0.1:39550] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/
+[Tue Apr 03 18:01:04.868366 2018] [:error] [pid 3256] [client 127.0.0.1:39558] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 18:01:04.907199 2018] [:error] [pid 3256] [client 127.0.0.1:39558] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 18:01:36.380536 2018] [:error] [pid 3286] [client 127.0.0.1:39578] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/
+[Tue Apr 03 18:01:36.418748 2018] [:error] [pid 3286] [client 127.0.0.1:39578] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/
+[Tue Apr 03 18:04:02.011246 2018] [:error] [pid 3254] [client 127.0.0.1:39600] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/
+[Tue Apr 03 18:04:02.090170 2018] [:error] [pid 3254] [client 127.0.0.1:39600] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/
+[Tue Apr 03 18:04:49.886926 2018] [:error] [pid 3252] [client 127.0.0.1:39620] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/
+[Tue Apr 03 18:04:49.923275 2018] [:error] [pid 3252] [client 127.0.0.1:39620] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/
+[Tue Apr 03 18:13:33.245278 2018] [:error] [pid 3253] [client 127.0.0.1:39648] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/
+[Tue Apr 03 18:13:33.297865 2018] [:error] [pid 3253] [client 127.0.0.1:39648] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/
+[Tue Apr 03 18:15:59.754795 2018] [:error] [pid 3256] [client 127.0.0.1:39664] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/index.php
+[Tue Apr 03 18:15:59.767381 2018] [:error] [pid 3256] [client 127.0.0.1:39664] PHP Warning:  Illegal string offset 'email' in /home/jnisbet/git/IT490-1/login.php on line 17, referer: http://localhost/index.php
+[Tue Apr 03 18:15:59.767414 2018] [:error] [pid 3256] [client 127.0.0.1:39664] PHP Warning:  Illegal string offset 'first_name' in /home/jnisbet/git/IT490-1/login.php on line 18, referer: http://localhost/index.php
+[Tue Apr 03 18:15:59.767423 2018] [:error] [pid 3256] [client 127.0.0.1:39664] PHP Warning:  Illegal string offset 'last_name' in /home/jnisbet/git/IT490-1/login.php on line 19, referer: http://localhost/index.php
+[Tue Apr 03 18:15:59.767430 2018] [:error] [pid 3256] [client 127.0.0.1:39664] PHP Warning:  Illegal string offset 'active' in /home/jnisbet/git/IT490-1/login.php on line 20, referer: http://localhost/index.php
+[Tue Apr 03 18:18:48.875966 2018] [:error] [pid 3253] [client 127.0.0.1:39704] PHP Notice:  Undefined variable: argv in /home/jnisbet/git/IT490-1/authClient.php on line 30, referer: http://localhost/
+[Tue Apr 03 18:18:48.910253 2018] [:error] [pid 3253] [client 127.0.0.1:39704] PHP Warning:  file_put_contents(error.log): failed to open stream: Permission denied in /home/jnisbet/git/IT490-1/error.php on line 19, referer: http://localhost/
+>>>>>>> c3e66e833825d27eae8921facaa71a06ffecd342

@@ -10,10 +10,18 @@ $_SESSION['last_name']  = $_POST['lastname'];
 
 // Escape all $_POST variables to protect against SQL injections
 $first_name = $mysqli->escape_string($_POST['firstname']);
+<<<<<<< HEAD
 $last_name  = $mysqli->escape_string($_POST['lastname']);
 $email      = $mysqli->escape_string($_POST['email']);
 $password   = $mysqli->escape_string(password_hash($_POST['password'], PASSWORD_BCRYPT));
 $hash       = $mysqli->escape_string(md5(rand(0, 1000)));
+=======
+$last_name = $mysqli->escape_string($_POST['lastname']);
+$email = $mysqli->escape_string($_POST['email']);
+$password = $mysqli->escape_string($_POST['password']);
+//$password = $mysqli->escape_string(password_hash($_POST['password'], PASSWORD_BCRYPT));
+//$hash = $mysqli->escape_string( md5( rand(0,1000) ) );
+>>>>>>> c3e66e833825d27eae8921facaa71a06ffecd342
 
 // Check if user with that email already exists
 $result = $mysqli->query("SELECT * FROM users WHERE email='$email'") or die($mysqli->error());
@@ -57,8 +65,14 @@ if ($result->num_rows > 0) {
     $user->query($watch) or die($user->error);
 
     // active is 0 by DEFAULT (no need to include it here)
+<<<<<<< HEAD
     $sql = "INSERT INTO users (first_name, last_name, email, password, hash) "
         . "VALUES ('$first_name','$last_name','$email','$password', '$hash')";
+=======
+    $sql = "INSERT INTO users (first_name, last_name, email, password) "
+            . "VALUES ('$first_name','$last_name','$email','$password')";
+
+>>>>>>> c3e66e833825d27eae8921facaa71a06ffecd342
 
     // Add user to the database
     if ($mysqli->query($sql)) {
