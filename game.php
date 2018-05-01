@@ -83,6 +83,17 @@ else {
 
               $released = "no";
 
+              /*echo "
+              <script>
+              $('#watch').click(function() {
+                   $('#watch').load('back/watch_game.php', {id: '<?php echo $app_id;?>', email: '<?php echo $email;?>', name: '<?php echo $json->results->name; ?>', date: '<?php echo $format; ?>'}, function(e){
+                   $('#watch').hide();
+                   alert('You are now watching this game!');
+                   });
+              });
+              </script>
+              ";*/
+
       }?>
     </br></br>Genre:
     <?php
@@ -95,7 +106,7 @@ else {
 
     header("access-control-allow-origin: *");
 
-    require 'user_functions.php';
+    require 'back/user_functions.php';
 
     switch($released){
       case "yes":
@@ -119,7 +130,7 @@ else {
         <script>
 
         $('#like').click(function() {
-             $('#like').load('like.php', {id: "<?php echo $app_id;?>", rating: "<?php echo $like;?>", email: "<?php echo $email;?>"}, function(e){
+             $('#like').load('back/like.php', {id: "<?php echo $app_id;?>", rating: "<?php echo $like;?>", email: "<?php echo $email;?>"}, function(e){
              $('#like').hide();
              $('#dislike').hide();
              alert("You liked this game!");
@@ -128,7 +139,7 @@ else {
         });
 
         $('#dislike').click(function() {
-             $('#dislike').load('like.php', {id: "<?php echo $app_id;?>", rating: "<?php echo $dislike;?>", email: "<?php echo $email;?>"}, function(e){
+             $('#dislike').load('back/like.php', {id: "<?php echo $app_id;?>", rating: "<?php echo $dislike;?>", email: "<?php echo $email;?>"}, function(e){
              $('#dislike').hide();
              $('#like').hide();
              alert("You disliked this game!");
@@ -137,7 +148,7 @@ else {
         });
 
         $('#own').click(function() {
-             $('#own').load('mark_owned.php', {id: "<?php echo $app_id;?>", email: "<?php echo $email;?>", name: "<?php echo $json->results->name; ?>"}, function(e){
+             $('#own').load('back/mark_owned.php', {id: "<?php echo $app_id;?>", email: "<?php echo $email;?>", name: "<?php echo $json->results->name; ?>"}, function(e){
              $('#own').hide();
              alert("Added to owned games!");
              location.reload();
@@ -145,14 +156,14 @@ else {
         });
 
         $('#watch').click(function() {
-             $('#watch').load('watch_game.php', {id: "<?php echo $app_id;?>", email: "<?php echo $email;?>", name: "<?php echo $json->results->name; ?>", date: "<?php echo $format; ?>"}, function(e){
+             $('#watch').load('back/watch_game.php', {id: "<?php echo $app_id;?>", email: "<?php echo $email;?>", name: "<?php echo $json->results->name; ?>", date: "<?php echo $format; ?>"}, function(e){
              $('#watch').hide();
              alert("You are now watching this game!");
              });
         });
 
         $('#rec').click(function() {
-             $('#rec').load('recommend.php', {id: "<?php echo $app_id;?>", first_name: "<?php echo $first_name;?>", last_name: "<?php echo $last_name;?>", email: "<?php echo $email;?>", name: "<?php echo $json->results->name; ?>"}, function(e){
+             $('#rec').load('back/recommend.php', {id: "<?php echo $app_id;?>", first_name: "<?php echo $first_name;?>", last_name: "<?php echo $last_name;?>", email: "<?php echo $email;?>", name: "<?php echo $json->results->name; ?>"}, function(e){
              $('#rec').hide();
              alert("Recommended!");
              });

@@ -36,7 +36,7 @@ else {
 
   <?php
 
-  require 'user_functions.php';
+  require 'back/user_functions.php';
 
   display_recommended();
 

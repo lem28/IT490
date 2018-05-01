@@ -1,6 +1,6 @@
 <?php
 
-require ('authClient.php');
+require ('rmq/authClient.php');
 $first_name = $mysqli->escape_string($_POST['firstname']);
 $last_name = $mysqli->escape_string($_POST['lastname']);
 $email = $mysqli->escape_string($_POST['email']);
@@ -22,7 +22,7 @@ else{
       $_SESSION['active'] = 0;
       $_SESSION['logged_in'] = true;
       $date = date_create();
-      file_put_contents('reg.log', "[".date_format($date, 'm-d-Y H:i:s')."] "."Account with email: ".$email." successfully registered.".PHP_EOL, FILE_APPEND);
+      file_put_contents('logs/reg.log', "[".date_format($date, 'm-d-Y H:i:s')."] "."Account with email: ".$email." successfully registered.".PHP_EOL, FILE_APPEND);
       header("location: profile.php");
 }
 

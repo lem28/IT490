@@ -8,10 +8,21 @@ function authentication($email,$userpass)
 {
 
       $host = 'localhost';
-      $user = 'root';
-      $dbpass = 'Jonathan723';
+      $user = 'usr';
+      $dbpass = 'password';
       $db = 'accounts';
-      $mysqli = new mysqli($host,$user,$dbpass,$db) or die($mysqli->error);
+      $mysqli = new mysqli($host,$user,$dbpass,$db);
+      if($mysqli->connect_errno){
+        echo "\nMaster server down, switching to backup...\n";
+        $host = '192.168.43.25';
+        $user = 'usr';
+        $dbpass = 'password';
+        $db = 'accounts';
+        $mysqli = new mysqli($host,$user,$dbpass,$db) or die($mysqli->error);
+      }
+      else{
+        echo "Using master.\n";
+      }
 
       $userinfo = array();
 
@@ -25,7 +36,7 @@ function authentication($email,$userpass)
           return false;
       }
       else { // User exists
-          echo "Correct Credentials\n";
+          echo "Correct Credentials, logging in...\n";
           $userinfo['email'] = $user['email'];
           $userinfo['first_name'] = $user['first_name'];
           $userinfo['last_name'] = $user['last_name'];

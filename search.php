@@ -37,7 +37,7 @@
 								document.getElementById("result").innerHTML = apiResult;
 							}
 						};
-						xhr.open("GET", "api.php?q=" + str, true);
+						xhr.open("GET", "back/api.php?q=" + str, true);
 						xhr.send();
 					}
 				</script>

@@ -1,6 +1,6 @@
 <?php
 
-require ('authClient.php');
+require ('rmq/authClient.php');
 $email = $_POST['email'];
 $userpass = $_POST['password'];
 
@@ -20,6 +20,6 @@ else{
       $_SESSION['last_name'] = $userinfo['last_name'];
       $_SESSION['active'] = $userinfo['active'];
       $date = date_create();
-      file_put_contents('user.log', "[".date_format($date, 'm-d-Y H:i:s')."] "."Account with email: ".$email." logged in.".PHP_EOL, FILE_APPEND);
+      file_put_contents('logs/user.log', "[".date_format($date, 'm-d-Y H:i:s')."] "."Account with email: ".$email." logged in.".PHP_EOL, FILE_APPEND);
       header("location: profile.php");
 }
