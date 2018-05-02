@@ -50,10 +50,21 @@ function authentication($email,$userpass)
 function registration($firstname, $lastname, $email, $password){
 
       $host = 'localhost';
-      $user = 'root';
-      $dbpass = 'Jonathan723';
+      $user = 'usr';
+      $dbpass = 'password';
       $db = 'accounts';
-      $mysqli = new mysqli($host,$user,$dbpass,$db) or die($mysqli->error);
+      $mysqli = new mysqli($host,$user,$dbpass,$db);
+      if($mysqli->connect_errno){
+        echo "\nMaster server down, switching to backup...\n";
+        $host = '192.168.43.25';
+        $user = 'usr';
+        $dbpass = 'password';
+        $db = 'accounts';
+        $mysqli = new mysqli($host,$user,$dbpass,$db) or die($mysqli->error);
+      }
+      else{
+        echo "Using master.\n";
+      }
 
       $userinfo = array();
 
