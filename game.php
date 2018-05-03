@@ -83,17 +83,6 @@ else {
 
               $released = "no";
 
-              /*echo "
-              <script>
-              $('#watch').click(function() {
-                   $('#watch').load('back/watch_game.php', {id: '<?php echo $app_id;?>', email: '<?php echo $email;?>', name: '<?php echo $json->results->name; ?>', date: '<?php echo $format; ?>'}, function(e){
-                   $('#watch').hide();
-                   alert('You are now watching this game!');
-                   });
-              });
-              </script>
-              ";*/
-
       }?>
     </br></br>Genre:
     <?php
@@ -178,7 +167,13 @@ else {
 
     </div>
 
-    <a href="search.php"><button class="button button-block" name="search"/>Find more games</button></a>
+    <?php
+
+    echo "<a href='forum/boards.php?gameid=".$app_id."'><button class='button button-block' name='forum'/>Game Forum</button></a>";
+
+    ?>
+    
+    <br><a href="search.php"><button class="button button-block" name="search"/>Find more games</button></a>
     <br><a href="profile.php"><button class="button button-block" name="Back"/>Back to profile</button></a>
 
     </div>

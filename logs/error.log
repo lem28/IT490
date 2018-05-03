@@ -320,3 +320,4 @@
 [Fri Apr 27 15:27:19.629764 2018] [:error] [pid 4999] [client 127.0.0.1:43782] PHP Warning:  require(user_functions.php): failed to open stream: No such file or directory in /home/jnisbet/git/IT490-1/game.php on line 98, referer: http://localhost/search.php
 [Fri Apr 27 15:27:19.629800 2018] [:error] [pid 4999] [client 127.0.0.1:43782] PHP Fatal error:  require(): Failed opening required 'user_functions.php' (include_path='.:/usr/share/php') in /home/jnisbet/git/IT490-1/game.php on line 98, referer: http://localhost/search.php
 [04-30-2018 20:13:06] Invalid email or password, try again!
+[05-02-2018 17:05:43] You must log in before viewing this page!
