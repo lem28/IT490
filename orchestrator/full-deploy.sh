@@ -2,23 +2,22 @@
 curr_time=$(date "+%m-%d-%y | %h-%m-%s")
 git_src="https://github.com/JonathanNisbet/IT490.git"
 ## credentials
-backend_user="asohail"
+backend_user="jnisbet"
 backend_pass="asohail20"
 mysql_user="jnisbet"
-mysql_pass="jonathan723"
+mysql_pass="Jonathan723"
 mysql_accounts="accounts"
 mysql_userdata="userdata"
 rmq_user="ubuntu"
 rmq_pass="ubuntu64"
-## initial directories
-dir_base="/home/deploy/orchestrator/"
+## directories
+dir_deploy_home="/home/deploy/"
+dir_deploy_base="/home/deploy/git/IT490/"
+## src / backup
 dir_bak_mysql="bak_mysql/"
 dir_bak_backend="bak_backend/"
-dir_src_backend="backend/"
-dir_src_mysql="mysql/"
-dir_src_rmq="rmq/"
 dir_dest_backend="/var/www/"
-dir_dest_mysql="/home/$mysql_user/"
+dir_dest_mysql="/home/$mysql_user/mysql/"
 ## dev cluster
 dev_backend="192.168.43.18"
 dev_mysql="192.168.43.15"
@@ -46,14 +45,23 @@ else
 	mysql_server=$mysql_user@$dev_mysql
 	rmq_server=$rmq_user@$dev_rmq
 fi
-## commence jiggling
-git clone 
-## tar up shit
-tar -czvf backend.tar.gz $dir_base$dir_src_backend
-tar -czvf rmq.tar.gz $dir_base$dir_src_rmq
-tar -czvf mysql.tar.gz $dir_base$dir_src_backend
-## scp shit
-sshpass -p "$backend_pass" scp -r $src_backend_dir $backend_server:$dest_backend_dir
-sshpass -p "$mysql_pass" scp -r $src_backend_dir $backend_server:$dest_backend_dir
-sshpass -p "$rmq_pass" scp -r $src_backend_dir $backend_server:$dest_backend_dir
-
+## commence jiggling ##
+cd ${dir_deploy_home}${dir_bak_backend} && cp $(ls -t *.tar | tail -1) ${dir_deploy_base}orchestrator/${dir_bak_backend}archive.tar
+cat ${dir_deploy_base}orchestrator/${dir_bak_backend}archive.tar | sshpass -p$backend_pass ssh ${backend_server} "cd /var/www/IT490/ && tar xvf -"
+## cleanup
+if [[ "$1" == "prod" || "$1" == "production" ]]; then
+	sshpass -p$backend_pass ssh ${backend_server} "cd /var/www/IT490/back/;
+	echo $backend_pass | sudo -S cp .db/accountsdb.php accountsdb.php;
+	echo $backend_pass | sudo -S cp .db/userdb.php userdb.php;
+	echo $backend_pass | sudo -S cp .db/forumdb.php forumdb.php;"
+elif [[ "$1" == "qa" || "$1" == "staging" ]]; then
+	sshpass -p$backend_pass ssh ${backend_server} "cd /var/www/IT490/back/;
+	echo $backend_pass | sudo -S cp .db/accountsdb0.php accountsdb.php;
+	echo $backend_pass | sudo -S cp .db/userdb0.php userdb.php;
+	echo $backend_pass | sudo -S cp .db/forumdb0.php forumdb.php;"
+else
+	sshpass -p$backend_pass ssh ${backend_server} "cd /var/www/IT490/back/;
+	echo $backend_pass | sudo -S cp .db/accountsdb1.php accountsdb.php;
+	echo $backend_pass | sudo -S cp .db/userdb1.php userdb.php;
+	echo $backend_pass | sudo -S cp .db/forumdb1.php forumdb.php;"
+fi
