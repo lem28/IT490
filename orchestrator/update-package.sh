@@ -55,7 +55,3 @@ else
 	echo "Please input a valid status. Available status: good, bad or WIP."
 	exit 0
 fi
-
-## version=$(mysql -uroot -pubuntu64 -s -N -e "use packages;INSERT INTO versions (date, status) VALUES (now(), 'WIP');select vid from versions  where date in (select MAX(date) from versions);")
-
-
