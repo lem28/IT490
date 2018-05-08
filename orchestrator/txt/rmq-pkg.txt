@@ -1,0 +1,2 @@
+librabbitmq4:amd64
+rabbitmq-server
