@@ -65,6 +65,7 @@ echo "Deploying version $version"
 
 
 sshpass -p$backend_pass ssh -o StrictHostKeyChecking=no ${backend_server} "cd /home/jnisbet/git/IT490-1/ && rm -rf * && tar xf - ." < "${dir_deploy_home}${dir_bak_backend}"${version}"_archive.tar"
+mysql -uroot -pubuntu64 -s -N -e "use packages;UPDATE cluster_info set curr_ver = $version where cluster_id = '$1'"
 
 
 ## cleanup
